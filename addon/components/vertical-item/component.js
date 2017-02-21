@@ -52,6 +52,9 @@ export default Component.extend({
     this.set('contentInserted', true);
     if (this.alwaysRemeasure) {
       this.element.style.height = undefined;
+      if (this.get('defaultHeight')) {
+        this.element.style.minHeight = `${this.get('defaultHeight')}px`;
+      }
     }
     scheduler.schedule('measure', () => {
       // this.updateHeight();
